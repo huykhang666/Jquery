@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Cau 10</title>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+            <button>7</button><button>8</button><button>9</button><button>/</button><br>
+            <button>4</button><button>5</button><button>6</button><button>*</button><br>
+            <button>1</button><button>2</button><button>3</button><button>-</button><br>
+            <button>0</button><button>C</button><button>=</button><button>+</button><br>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function() {
+        let input = "";
+
+        $(".buttons button").click(function() {
+        const val = $(this).text();
+
+        if (val === "C") {
+            input = "";
+        } else if (val === "=") {
+        try {
+            input = eval(input).toString();
+        } catch {
+            input = "Lỗi";
+        }
+        } else {
+        input += val;
+        }
+
+        $("#display").val(input);
+        });
+    });
+</script>
+</body>
+</html>

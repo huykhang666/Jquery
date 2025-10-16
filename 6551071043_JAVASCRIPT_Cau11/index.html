@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Home</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2 class="text-center">Custom File Input</h2>
+
+<div class="custom-file-wrp">
+	<div class="filename">
+		Ex:sample.jpg
+	</div>
+	<div class="custom-file">
+		<label for="fileupload">Upload</label>
+		<input type="file"  id="fileupload">
+	</div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#fileupload").change(function() {
+      const file = this.files[0];
+      if (file) {
+        const name = file.name;
+        const ext = name.split('.').pop();
+        $(".filename").text("Tên file: " + name + " | Phần mở rộng: " + ext);
+      }
+    });
+  });
+</script>
+</html>

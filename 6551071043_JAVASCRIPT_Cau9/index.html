@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Đăng ký</title></head>
+<body>
+  <form id="form">
+    Tên*: <input id="name"><br>
+    Email*: <input id="email"><br>
+    Ngày sinh*: <input id="dob"><br>
+    Zip*: <input id="zip"><br>
+    Giới tính*: 
+    <select id="gender">
+      <option value="">--</option>
+      <option>Nam</option>
+      <option>Nữ</option>
+    </select><br><br>
+    <button type="button" id="clear">Clear</button>
+    <button type="button" id="submit">Finish</button>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    $("#clear").click(function() {
+      $("#form")[0].reset();
+    });
+
+    $("#submit").click(function() {
+      var n = $("#name").val().trim(),
+          e = $("#email").val().trim(),
+          d = $("#dob").val().trim(),
+          z = $("#zip").val().trim(),
+          g = $("#gender").val();
+
+      if (!n || !e || !d || !z || !g) {
+        alert("Vui lòng điền đầy đủ thông tin.");
+        return;
+      }
+
+      if (e.indexOf("@") === -1) {
+        alert("Email sai.");
+        return;
+      }
+
+      if (z.length !== 5) {
+        alert("Vui lòng nhập zip có 5 chữ số.");
+        return;
+      }
+
+      alert("Đăng ký thành công!");
+    });
+  });
+</script>
+</body>
+</html>

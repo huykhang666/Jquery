@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cau 8</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <label id="calculator">
+    <input id="vao" style="width: 40px;" type="text">
+    <button class="operator">+</button>
+    <button class="operator">-</button>
+    <button class="operator">*</button>
+    <button class="operator">/</button>
+    <button class="operator">^</button>
+    <input id="ra" style="width: 40px;" type="text">
+    <button id="tinh">=</button>
+    <input id="ketQua" style="width: 60px;" type="text">
+  </label>
+
+  <script>
+    $(document).ready(function() {
+      let phepToan = "";
+
+      $(".operator").click(function() {
+        phepToan = $(this).text().trim();
+      });
+      $("#tinh").click(function() {
+        const num1 = parseFloat($("#vao").val());
+        const num2 = parseFloat($("#ra").val());
+        let ketQua = "";
+
+        switch (phepToan) {
+          case "+":
+            ketQua = num1 + num2;
+            break;
+          case "-":
+            ketQua = num1 - num2;
+            break;
+          case "*":
+            ketQua = num1 * num2;
+            break;
+          case "/":
+            ketQua = num2 !== 0 ? num1 / num2 : "Lỗi chia 0";
+            break;
+          case "^":
+            ketQua = Math.pow(num1, num2);
+            break;
+          default:
+            ketQua = "Chưa chọn phép toán";
+        }
+
+        $("#ketQua").val(ketQua);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Home</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!--IMAGE EFFECT-->
+    <div class="image-effect" id="image-effect-2">
+        <img src="images/off.png" class="fadeEffect">
+        <img src="images/on.png" class="fadeEffect-2">
+    </div>
+
+    <!--Switch Button-->
+    <div class="switch-btn">
+        <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox toggle-switch-2" id="myonoffswitch" tabindex="0" checked>
+            <label class="onoffswitch-label" for="myonoffswitch">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
+    </div>
+
+   
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    const tat = $(".fadeEffect");
+    const bat = $(".fadeEffect-2");
+
+    function updateImage() {
+      if ($("#myonoffswitch").is(":checked")) {
+        bat.show();
+        tat.hide();
+      } else {
+        tat.show();
+        bat.hide();
+      }
+    }
+
+    updateImage();
+
+    $("#myonoffswitch").change(function() {
+      updateImage();
+    });
+  });
+</script>
+</html>
